@@ -3,22 +3,22 @@
         <el-row :gutter="20">
             <el-col :span="6">
                 <el-card shadow="hover">
-                鼠标悬浮时显示
+                    <footfall-top/>
                 </el-card>
             </el-col>
             <el-col :span="6">
                 <el-card shadow="hover">
-                鼠标悬浮时显示
+                    <spend-top/>
                 </el-card>
             </el-col>
             <el-col :span="6">
                 <el-card shadow="hover">
-                鼠标悬浮时显示
+                    <footfall-bottom/>
                 </el-card>
             </el-col>
             <el-col :span="6">
                 <el-card shadow="hover">
-                鼠标悬浮时显示
+                    <spend-bottom/>
                 </el-card>
             </el-col>
         </el-row>
@@ -27,7 +27,19 @@
 </template>
 
 <script>
-export default {}
+import FootfallTop from '../FootfallTop/FootfallTop.vue'
+import SpendTop from '../SpendTop/SpendTop.vue'
+import FootfallBottom from '../FootfallBottom/FootfallBottom.vue'
+import SpendBottom from '../SpendBottom/SpendBottom.vue'
+
+export default {
+  components: {
+    FootfallTop,
+    SpendTop,
+    FootfallBottom,
+    SpendBottom
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>

@@ -2,7 +2,7 @@
   <div class="home">
     <top-view></top-view>
     <middle-view></middle-view>
-    <botton-view></botton-view>
+    <bottom-view></bottom-view>
     <map-view></map-view>
   </div>
 </template>
@@ -10,7 +10,7 @@
 <script>
 import TopView from '../components/TopView/TopView.vue'
 import MiddleView from '../components/MiddleView/MiddleView.vue'
-import BottonView from '../components/BottonView/BottonView.vue'
+import BottomView from '../components/BottomView/BottomView.vue'
 import MapView from '../components/MapView/MapView.vue'
 
 export default {
@@ -18,7 +18,7 @@ export default {
   components: {
     TopView,
     MiddleView,
-    BottonView,
+    BottomView,
     MapView
   }
 }
