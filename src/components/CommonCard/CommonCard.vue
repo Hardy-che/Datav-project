@@ -4,10 +4,6 @@
         <div class="chart">
             <slot></slot>
         </div>
-        <div class="line"></div>
-        <div class="period">
-            <slot name="footer"></slot>
-        </div>
     </div>
 </template>
 
@@ -21,22 +17,12 @@ export default {
 
 <style lang="scss" scoped>
     .title {
-        font-size: 25px;
+        font-size: 15px;
         color: #000;
     }
 
     .chart {
-        height: 150px;
+        height: 120px;
         // background-color: aqua;
-    }
-
-    .line {
-        margin: 10px, 0;
-        border-top: 1px solid #eee;
-    }
-
-    .period {
-        font-size: 12px;
-        color: #666;
     }
 </style>

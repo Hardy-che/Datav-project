@@ -1,12 +1,14 @@
 <template>
-    <v-charts
-        :options="options">
-    </v-charts>
+    <ve-bmap
+        :settings = "chartSettings"
+        :title = "title"
+        :tooltip = "{}"
+        :series = "chartSeries"
+        height = "100%"
+    ></ve-bmap>
 </template>
 
 <script>
-    import 'echarts/extension/bmap/bmap'
-
     const dataPoint = [{
         name: 'Nottingham',
         value: [-1.166538, 52.953889, 112]
@@ -24,25 +26,14 @@
     export default {
         data() {
             return {
-                options: {}
-            }
-        },
-        mounted() {
-            /* eslint-disable */
-            this.options = {
-                title: {
-                    text: 'UK Economic Recovery Trend After Covid-19',
-                    subtext: 'city data analysis',
-                    sublink: 'https://www.centreforcities.org/data/',
-                    left: 'center'
-                },
-
-                bmap: {
+                /* eslint-disable */
+                chartSettings: {
                     key: 'nZfKjSpI5NtKcZIGFGRsTincMAOWMcUM',
-                    center: [-4.54613, 54.25859],
-                    zoom: 6.5,
-                    roam: true,
-                    mapStyle: {
+                    bmap: {
+                        center: [-4.54613, 54.25859],
+                        zoom: 6.9,
+                        roam: false,
+                        mapStyle: {
                         styleJson: [{
                             'featureType': 'water',
                             'elementType': 'all',
@@ -140,10 +131,18 @@
                                 'color': '#999999'
                             }
                             }]
+                        }
                     }
                 },
 
-                series: [{
+                title: {
+                    text: 'UK Economic Recovery Trend After Covid-19',
+                    subtext: 'city data analysis',
+                    sublink: 'https://www.centreforcities.org/data/',
+                    left: 'center'
+                },
+
+                chartSeries: [{
                     name: 'spend index',
                     type: 'scatter',
                     coordinateSystem: 'bmap',
@@ -169,17 +168,8 @@
                             show: true
                         }
                     }
-                }],
-
-                tooltip: {}
+                }]
             }
         }
     }
 </script>
-
-<style lang="scss" scoped>
-    .bmap {
-        width: 100%;
-        height: 100%;
-    }
-</style>

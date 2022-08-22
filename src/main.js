@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import './plugins/element.js'
+import './plugins/vcharts'
+import './style/style.css'
 import * as echarts from 'echarts'
 import VueECharts from 'vue-echarts'
 

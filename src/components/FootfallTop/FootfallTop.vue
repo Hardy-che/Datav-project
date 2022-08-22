@@ -1,13 +1,7 @@
 <template>
-  <common-card title="Footfall Top">
+  <common-card title="Footfall Top Index">
     <template>
-      <div id="footfall-chart" :style="{width: '100%', height: '100%'}">
-
-      </div>
-    </template>
-    <template v-slot:footer>
-        <span>Record Date:</span>
-        <span class="record-date">165</span>
+      <div id="footfalltop-chart"></div>
     </template>
   </common-card>
 </template>
@@ -18,35 +12,38 @@ import commonCardMixin from '@/mixins/commonCardMixin'
 export default {
   mixins: [commonCardMixin],
   mounted () {
-    const chartDom = document.getElementById('footfall-chart')
+    const chartDom = document.getElementById('footfalltop-chart')
     const chart = this.$echarts.init(chartDom)
     chart.setOption({
+      color: ['#F94D45'],
       xAxis: {
         type: 'category',
         data: ['Plymouth', 'Blackpool', 'Southend', 'Dundee', 'Burnley', 'Barnsley', 'Swansea', 'York', 'Sunderland'],
         show: false
       },
-      yAxis: {},
+      yAxis: {
+        show: false
+      },
       series: [{
         type: 'bar',
-        data: [165, 160, 143, 140, 138, 134, 132, 130, 126]
+        data: [165, 160, 143, 140, 138, 134, 132, 130, 126],
+        barWidth: '60%'
       }],
       grid: {
-        top: 10,
-        bottom: 10,
-        left: 23,
+        top: 0,
+        bottom: 0,
+        left: 0,
         right: 0
-      }
+      },
+      tooltip: {}
     })
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .footfall-chart {
+  #footfalltop-chart {
     height: 100%;
-  }
-  .record-date {
-    margin-left: 5px;
+    width: 100%;
   }
 </style>
