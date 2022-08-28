@@ -5,25 +5,20 @@
         :tooltip = "{}"
         :series = "chartSeries"
         height = "100%"
+        :events = "{click: handleChartsEvent}"
     ></ve-bmap>
 </template>
 
 <script>
-    const dataPoint = [{
-        name: 'Nottingham',
-        value: [-1.166538, 52.953889, 112]
-    }, {
-        name: 'Blackpool',
-        value: [-8.048796, 52.092831, 195]
-    }, {
-        name: 'Wakefield',
-        value: [-1.492722, 53.685322, 190]
-    }, {
-        name: 'Huddersfield',
-        value: [-8.315439, 51.797593, 144]
-    }]
-
+/* eslint-disable */
     export default {
+        props:{
+            scatterPointArr: {
+            type: Array,
+            required: true
+            }
+        },
+
         data() {
             return {
                 /* eslint-disable */
@@ -34,101 +29,132 @@
                         zoom: 6.9,
                         roam: false,
                         mapStyle: {
-                        styleJson: [{
-                            'featureType': 'water',
-                            'elementType': 'all',
-                            'stylers': {
-                                'color': '#d1d1d1'
+                        styleJson: [ {
+                            featureType: 'water',
+                            elementType: 'all',
+                            stylers: {
+                                color: '#044161'
                             }
-                            }, {
-                            'featureType': 'land',
-                            'elementType': 'all',
-                            'stylers': {
-                                'color': '#f3f3f3',
+                            },
+                            {
+                            featureType: 'land',
+                            elementType: 'all',
+                            stylers: {
+                                color: '#004981'
                             }
-                            }, {
-                            'featureType': 'railway',
-                            'elementType': 'all',
-                            'stylers': {
-                                'visibility': 'off'
+                            },
+                            {
+                            featureType: 'boundary',
+                            elementType: 'geometry',
+                            stylers: {
+                                color: '#064f85'
                             }
-                            }, {
-                            'featureType': 'highway',
-                            'elementType': 'all',
-                            'stylers': {
-                                'color': '#fdfdfd'
+                            },
+                            {
+                            featureType: 'railway',
+                            elementType: 'all',
+                            stylers: {
+                                visibility: 'off'
                             }
-                            }, {
-                            'featureType': 'highway',
-                            'elementType': 'labels',
-                            'stylers': {
-                                'visibility': 'off'
+                            },
+                            {
+                            featureType: 'highway',
+                            elementType: 'geometry',
+                            stylers: {
+                                color: '#004981'
                             }
-                            }, {
-                            'featureType': 'arterial',
-                            'elementType': 'geometry',
-                            'stylers': {
-                                'color': '#fefefe'
+                            },
+                            {
+                            featureType: 'highway',
+                            elementType: 'geometry.fill',
+                            stylers: {
+                                color: '#005b96',
+                                lightness: 1
                             }
-                            }, {
-                            'featureType': 'arterial',
-                            'elementType': 'geometry.fill',
-                            'stylers': {
-                                'color': '#fefefe'
+                            },
+                            {
+                            featureType: 'highway',
+                            elementType: 'labels',
+                            stylers: {
+                                visibility: 'off'
                             }
-                            }, {
-                            'featureType': 'poi',
-                            'elementType': 'all',
-                            'stylers': {
-                                'visibility': 'off'
+                            },
+                            {
+                            featureType: 'arterial',
+                            elementType: 'geometry',
+                            stylers: {
+                                color: '#004981'
                             }
-                            }, {
-                            'featureType': 'green',
-                            'elementType': 'all',
-                            'stylers': {
-                                'visibility': 'off'
+                            },
+                            {
+                            featureType: 'arterial',
+                            elementType: 'geometry.fill',
+                            stylers: {
+                                color: '#00508b'
                             }
-                            }, {
-                            'featureType': 'subway',
-                            'elementType': 'all',
-                            'stylers': {
-                                'visibility': 'off'
+                            },
+                            {
+                            featureType: 'poi',
+                            elementType: 'all',
+                            stylers: {
+                                visibility: 'off'
                             }
-                            }, {
-                            'featureType': 'manmade',
-                            'elementType': 'all',
-                            'stylers': {
-                                'color': '#d1d1d1'
+                            },
+                            {
+                            featureType: 'green',
+                            elementType: 'all',
+                            stylers: {
+                                color: '#056197',
+                                visibility: 'off'
                             }
-                            }, {
-                            'featureType': 'local',
-                            'elementType': 'all',
-                            'stylers': {
-                                'color': '#d1d1d1'
+                            },
+                            {
+                            featureType: 'subway',
+                            elementType: 'all',
+                            stylers: {
+                                visibility: 'off'
                             }
-                            }, {
-                            'featureType': 'arterial',
-                            'elementType': 'labels',
-                            'stylers': {
-                                'visibility': 'off'
+                            },
+                            {
+                            featureType: 'manmade',
+                            elementType: 'all',
+                            stylers: {
+                                visibility: 'off'
                             }
-                            }, {
-                            'featureType': 'boundary',
-                            'elementType': 'all',
-                            'stylers': {
-                                'color': '#fefefe'
+                            },
+                            {
+                            featureType: 'local',
+                            elementType: 'all',
+                            stylers: {
+                                visibility: 'off'
                             }
-                            }, {
-                            'featureType': 'building',
-                            'elementType': 'all',
-                            'stylers': {
-                                'color': '#d1d1d1'
+                            },
+                            {
+                            featureType: 'arterial',
+                            elementType: 'labels',
+                            stylers: {
+                                visibility: 'off'
                             }
-                            }, {
-                            'featureType': 'label',
-                            'elementType': 'labels.text.fill',
-                            'stylers': {
-                                'color': '#999999'
+                            },
+                            {
+                            featureType: 'boundary',
+                            elementType: 'geometry.fill',
+                            stylers: {
+                                color: '#029fd4'
+                            }
+                            },
+                            {
+                            featureType: 'building',
+                            elementType: 'all',
+                            stylers: {
+                                color: '#1a5787'
+                            }
+                            },
+                            {
+                            featureType: 'label',
+                            elementType: 'all',
+                            stylers: {
+                                visibility: 'off'
                             }
                             }]
                         }
@@ -139,14 +165,17 @@
                     text: 'UK Economic Recovery Trend After Covid-19',
                     subtext: 'city data analysis',
                     sublink: 'https://www.centreforcities.org/data/',
-                    left: 'center'
+                    left: 'center',
+                    textStyle: {
+                        color: '#fff'
+                    }
                 },
 
                 chartSeries: [{
                     name: 'spend index',
                     type: 'scatter',
                     coordinateSystem: 'bmap',
-                    data: dataPoint,
+                    data: this.scatterPointArr,
                     encode: {
                         value: 2,
                     },
@@ -170,6 +199,15 @@
                     }
                 }]
             }
+        },
+        methods: {
+            handleChartsEvent({name}) {
+                this.$emit('cityClick', name)
+            }
+            // handleChartsEvent(i) {
+            //     console.log(i)
+            // }
         }
     }
 </script>
+
