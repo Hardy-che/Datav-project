@@ -36,8 +36,8 @@
                         }
                     },
                     title: {
-                            text: 'Claimant Count',
-                            subtext: 'Percentage of population receiving claimant and work-age population'
+                            text: this.title,
+                            subtext: this.subText
                     },
                     xAxis: {
                         type: 'category',
@@ -70,6 +70,8 @@
                 this.myChart.setOption(this.chartOption)
             },
             updateLineChartXAxisData(newXAxisData) {
+                this.chartOption.title.text = this.title
+                this.chartOption.title.subtext = this.subText
                 this.chartOption.xAxis.data = newXAxisData
                 this.myChart.setOption(this.chartOption, true)
             },

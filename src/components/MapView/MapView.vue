@@ -15,8 +15,8 @@
                             mode="horizontal"
                             @select="onMenuSel"
                         >
-                            <el-menu-item :index=0>unemployment</el-menu-item>
-                            <el-menu-item :index=1>inflation</el-menu-item>
+                            <el-menu-item :index='0'>unemployment</el-menu-item>
+                            <el-menu-item :index='1'>inflation</el-menu-item>
                         </el-menu>
                     </div>
                 </template>
@@ -99,7 +99,7 @@ const MapScatterPointArr = [
     value: [-3.175827, 51.486942, 103]
   },
   {
-    name: 'Coventry',
+    name: 'Conventry',
     value: [-1.510941, 52.408224, 79]
   },
   {
@@ -286,8 +286,8 @@ const unemploymentLineChartDataList = [
 ]
 // // title and subtitle
 const unemploymentTitleObj = {
-  title: 'unemploymentTitle',
-  subTitle: 'unemploymenSubTitle'
+  title: 'Claimant Count',
+  subText: 'Percentage of population receiving claimant and work-age population'
 }
 
 // inflationList data
@@ -427,8 +427,8 @@ const inflationLineChartDataList = [
 ]
 // // title and subtitle
 const inflationTitleObj = {
-  title: 'inflationtTitle',
-  subText: 'inflationSubTitle'
+  title: 'inflationt',
+  subText: 'Index of price inflation'
 }
 
 // all title stack
